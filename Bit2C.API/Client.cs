@@ -110,15 +110,15 @@ namespace Bit2C.API {
             return Serializer.Deserialize<List<AccountRaw>>(result);
         }
 
-        public string OrdersHistory(DateTime? fromTime, DateTime? toTime, string pair) {
+        public string OrderHistory(DateTime? fromTime, DateTime? toTime, string pair) {
             System.Threading.Thread.Sleep(WAIT);
             string qString = string.Format("fromTime={0}&toTime={1}&pair={2}", fromTime, toTime, pair) + "&nonce=" + nonce;
             var sign = ComputeHash(this.secret, qString);
-            var url = URL + "Order/OrdersHistory";
+            var url = URL + "Order/OrderHistory";
             if (DIAGNOS) {
                 System.Diagnostics.Debug.WriteLine("nonce={0} qString={1} url={2} Key={3}", nonce, qString, url, Key);
             }
-            string result = Query(qString, url, Key, sign, "POST");
+            string result = Query(qString, url, Key, sign, "GET");
             return result;
         }
 
