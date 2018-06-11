@@ -10,7 +10,7 @@ namespace Tester {
 
             string key1 = "[]";
             string secret1 = "[]";
-            string url = "https://www.bit2c.co.il/home/";
+            string url = "https://bit2c.co.il/home/";
 
             Bit2C.API.Client client = new Bit2C.API.Client(url, key1, secret1);
 
